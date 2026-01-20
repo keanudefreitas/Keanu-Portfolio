@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keanu WebSolutions</title>
+  <title>Keanu de Freitas - Web Developer</title>
   <style>
     /* Reset and Base Styles */
     * {
@@ -148,6 +148,135 @@
       box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
     }
 
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 1.5em;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5em;
+      color: #e0e0e0;
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.75em;
+      border: 1px solid #00d4ff;
+      border-radius: 4px;
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+      font-family: inherit;
+      font-size: 1em;
+      transition: all 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #00f0ff;
+      box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+      background-color: #2d2d2d;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background-color: #00d4ff;
+      color: #1a1a1a;
+      padding: 0.8em 1.5em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1em;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00f0ff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .message {
+      margin-top: 1.5em;
+      padding: 1em;
+      border-radius: 4px;
+      display: none;
+      font-weight: 500;
+      border-left: 4px solid #00d4ff;
+    }
+
+    .message.success {
+      background-color: rgba(0, 212, 255, 0.1);
+      color: #00d4ff;
+      border-left-color: #00d4ff;
+      display: block;
+    }
+
+    .message.error {
+      background-color: rgba(255, 100, 100, 0.1);
+      color: #ff6464;
+      border-left-color: #ff6464;
+      display: block;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      color: #00d4ff;
+      margin-top: 10px;
+    }
+
+    .loading.active {
+      display: block;
+    }
+
+    .inquiries-section {
+      margin-top: 3em;
+    }
+
+    .inquiry-item {
+      background-color: #2d2d2d;
+      border-left: 4px solid #00d4ff;
+      padding: 1.5em;
+      margin-bottom: 1em;
+      border-radius: 4px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .inquiry-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+    }
+
+    .inquiry-item h4 {
+      color: #00d4ff;
+      margin-bottom: 0.8em;
+    }
+
+    .inquiry-item p {
+      color: #e0e0e0;
+      font-size: 0.95em;
+      margin-bottom: 0.5em;
+    }
+
+    .inquiry-item .timestamp {
+      color: #999;
+      font-size: 0.85em;
+      margin-top: 0.8em;
+    }
+
     /* Links */
     a {
       color: #00d4ff;
@@ -215,15 +344,15 @@
 
   <header>
     <div class="name">Keanu WebSolutions</div>
-    <div class="lines">Web Developer   </div>
+    <div class="lines">Web Development</div>
   </header>
 
   <nav style="color: white">
     <ul>
-      <li><a href="#" style="color: white">About Me</a></li>
-      <li><a href="#about" style="color: white">Skills</a></li>
-      <li><a href="#skills"style="color: white">Projects</a></li>
-      <li><a href="#contact" style="color: white">Contact</a></li>
+      <li><a href="#about" style="color: white">About Me</a></li>
+      <li><a href="#skills" style="color: white">Skills</a></li>
+      <li><a href="#projects" style="color: white">Projects</a></li>
+      <li><a href="#inquiry" style="color: white">Inquiry</a></li>
     </ul>
   </nav>
 
@@ -236,8 +365,7 @@
     <section id="skills">
       <h2>Skills</h2>
       <ul>
-        <li>Web Development (HTML, CSS, JavaScript, Flask)</li>
-        <li>Academic Problem-Solving (Maths, Physical Sciences, Geography)</li>
+        <li>Web Development</li>
         <li>Business Branding & Service Packaging</li>
         <li>Python Troubleshooting & Simulations</li>
         <li>Interactive App & Game Development</li>
@@ -252,20 +380,162 @@
       </article>
     </section>
 
+    <section id="inquiry">
+      <h2>📋 Business Inquiry</h2>
+      <p>Submit your inquiry and we'll get back to you soon</p>
+
+      <article>
+        <form id="inquiryForm">
+          <div class="form-group">
+            <label for="businessName">Business Name *</label>
+            <input
+              type="text"
+              id="businessName"
+              name="businessName"
+              required
+              placeholder="Your Business Name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="your@email.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="businessNumber">Phone Number *</label>
+            <input
+              type="tel"
+              id="businessNumber"
+              name="businessNumber"
+              required
+              placeholder="(555) 123-4567"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="inquiry">Inquiry Message *</label>
+            <textarea
+              id="inquiry"
+              name="inquiry"
+              required
+              placeholder="Tell us about your inquiry..."
+            ></textarea>
+          </div>
+
+          <button type="submit">Submit Inquiry</button>
+          <div class="loading" id="loading">Submitting...</div>
+        </form>
+
+        <div class="message" id="message"></div>
+      </article>
+    </section>
+
+    <section class="inquiries-section" id="inquiriesSection" style="display: none;">
+      <h2>Recent Inquiries</h2>
+      <div id="inquiriesList"></div>
+    </section>
+
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:keanu@example.com">keanuwebsolutions@gmail.com</a></p>
-      
-      <p>GitHub: <a href="#">github.com/keanu</a></p>
+      <p>Email: <a href="mailto:keanuwebsolutions@gmail.com">keanuwebsolutions@gmail.com</a></p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Keanu's Portfolio</p>
+    <p>&copy; 2026 Keanu WebSolutions</p>
   </footer>
+
+  <script>
+    const form = document.getElementById("inquiryForm");
+    const messageDiv = document.getElementById("message");
+    const loading = document.getElementById("loading");
+    const inquiriesSection = document.getElementById("inquiriesSection");
+    const inquiriesList = document.getElementById("inquiriesList");
+
+    // Submit form
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        businessName: document.getElementById("businessName").value,
+        email: document.getElementById("email").value,
+        businessNumber: document.getElementById("businessNumber").value,
+        inquiry: document.getElementById("inquiry").value,
+      };
+
+      loading.classList.add("active");
+      messageDiv.className = "message";
+
+      try {
+        const apiBase = window.location.hostname === 'localhost' ? 'http://localhost:3000' : window.location.origin;
+        const response = await fetch(apiBase + "/api/inquiries", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          messageDiv.className = "message success";
+          messageDiv.textContent =
+            "✓ " + data.message + " (ID: " + data.id + ")";
+          form.reset();
+          loadInquiries();
+        } else {
+          messageDiv.className = "message error";
+          messageDiv.textContent = "✗ Error: " + data.error;
+        }
+      } catch (error) {
+        messageDiv.className = "message error";
+        messageDiv.textContent =
+          "✗ Connection error: " +
+          error.message +
+          ". Make sure the server is running!";
+      } finally {
+        loading.classList.remove("active");
+      }
+    });
+
+    // Load inquiries
+    async function loadInquiries() {
+      try {
+        const apiBase = window.location.hostname === 'localhost' ? 'http://localhost:3000' : window.location.origin;
+        const response = await fetch(apiBase + "/api/inquiries");
+        const inquiries = await response.json();
+
+        if (inquiries.length > 0) {
+          inquiriesSection.style.display = "block";
+          inquiriesList.innerHTML = inquiries
+            .map(
+              (inquiry) => `
+            <div class="inquiry-item">
+              <h4>${inquiry.business_name}</h4>
+              <p><strong>Email:</strong> ${inquiry.email}</p>
+              <p><strong>Phone:</strong> ${inquiry.business_number}</p>
+              <p><strong>Message:</strong> ${inquiry.inquiry}</p>
+              <p class="timestamp">Submitted: ${new Date(inquiry.created_at).toLocaleString()}</p>
+            </div>
+          `
+            )
+            .join("");
+        }
+      } catch (error) {
+        console.log("Could not load inquiries");
+      }
+    }
+
+    // Load inquiries on page load
+    loadInquiries();
+  </script>
 </body>
 </html>
-
-
-
-
