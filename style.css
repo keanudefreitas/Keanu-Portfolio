@@ -40,11 +40,11 @@ header {
 /* ✅ Mobile adjustments */
 @media (max-width: 600px) {
   .name {
-    font-size: 2em;   /* smaller on phones */
+    font-size: 0.5em;   /* smaller on phones */
   }
 
   .tagline {
-    font-size: 1em;   /* scale tagline down too */
+    font-size: 0.25em;   /* scale tagline down too */
   }
 }
 
@@ -143,3 +143,4 @@ footer {
   font-size: 0.9em;
 
 }
+
